@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    x:Class="Otp.Maui.Views.OtpListView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:Otp.Maui.Components"
+    xmlns:dto="clr-namespace:Otp.Business.Dto;assembly=Otp.Business"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:internal="clr-namespace:DevExpress.Maui.Core.Internal;assembly=DevExpress.Maui.Core"
+    xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+    xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+    xmlns:viewModels="clr-namespace:Otp.Business.ViewModels;assembly=Otp.Business"
+    x:DataType="viewModels:OtpListViewModel"
+    Shell.NavBarIsVisible="True">
+    <Shell.TitleView>
+        <dx:TextEdit
+            Margin="0,10,10,10"
+            BoxPadding="10,10,10,10"
+            PlaceholderText="Auth Guard"
+            Text="{Binding Text}"
+            TextChangedCommand="{Binding SearchOtpCommand}"
+            TextHorizontalAlignment="Center"
+            TextVerticalAlignment="Center" />
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <Grid>
+            <dx:DXCollectionView
+                x:Name="OtpList"
+                Margin="20,20"
+                ItemsSource="{Binding OtpList}">
+                <dx:DXCollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="dto:OtpObservable">
+                        <dx:SwipeContainer>
+                            <dx:SwipeContainer.ItemView>
+                                <Grid
+                                    ColumnDefinitions="7*,3*"
+                                    RowDefinitions="70"
+                                    RowSpacing="20">
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label Text="{Binding Description}" />
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="Title"
+                                            Text="{Binding Otp}" />
+                                    </StackLayout>
+                                    <dx:RadialProgressBar
+                                        Grid.Column="1"
+                                        AllowAnimation="True"
+                                        Content="{Binding .}"
+                                        EndValue="30"
+                                        HorizontalOptions="Center"
+                                        StartAngle="-90"
+                                        StartValue="0"
+                                        SweepAngle="360"
+                                        Thickness="0"
+                                        ValueIndicatorThickness="5"
+                                        WidthRequest="50"
+                                        Value="{Binding TimeRemaining}">
+                                        <dx:RadialProgressBar.ContentTemplate>
+                                            <DataTemplate>
+                                                <Label
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding TimeRemaining}"
+                                                    TextColor="White"
+                                                    VerticalOptions="Center" />
+                                            </DataTemplate>
+                                        </dx:RadialProgressBar.ContentTemplate>
+                                    </dx:RadialProgressBar>
+                                </Grid>
+                            </dx:SwipeContainer.ItemView>
+                            <dx:SwipeContainer.StartSwipeItems>
+                                <dx:SwipeContainerItem
+                                    x:Name="StartContainerItem"
+                                    BackgroundColor="{StaticResource AccentColor}"
+                                    Caption="Modifica"
+                                    FontColor="{StaticResource TextAccentColor}"
+                                    Image="{FontImageSource FontFamily=FASolid,
+                                                            Glyph={x:Static uranium:Solid.Pencil},
+                                                            Size=30,
+                                                            Color={StaticResource TextAccentColor}}"
+                                    Tap="ModifySwipeContainerItem_Tap" />
+                            </dx:SwipeContainer.StartSwipeItems>
+                            <dx:SwipeContainer.EndSwipeItems>
+                                <dx:SwipeContainerItem
+                                    BackgroundColor="Red"
+                                    Caption="Elimina"
+                                    Image="{FontImageSource FontFamily=FASolid,
+                                                            Glyph={x:Static uranium:Solid.Trash},
+                                                            Size=30,
+                                                            Color=White}"
+                                    Tap="SwipeContainerItem_Tap" />
+                            </dx:SwipeContainer.EndSwipeItems>
+                        </dx:SwipeContainer>
+                    </DataTemplate>
+                </dx:DXCollectionView.ItemTemplate>
+            </dx:DXCollectionView>
+            <components:MenuButton
+                Margin="0,0,10,10"
+                CameraTapped="MenuButton_CameraTapped"
+                HorizontalOptions="End"
+                VerticalOptions="End" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

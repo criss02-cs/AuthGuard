@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Otp.Maui.Views.ScannerView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui"
+    Title="ScannerView"
+    Loaded="ScannerView_OnLoaded"
+    Shell.NavBarIsVisible="False">
+    <Grid Margin="10,45,10,0" RowDefinitions="35,*,150">
+        <Border
+            BackgroundColor="Black"
+            HeightRequest="35"
+            StrokeShape="RoundRectangle 10"
+            StrokeThickness="0">
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="Scansiona il codice QR"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </Border>
+        <Border
+            x:Name="CameraViewBorder"
+            Grid.Row="1"
+            BackgroundColor="{StaticResource AccentColor}"
+            HeightRequest="300"
+            Stroke="White"
+            WidthRequest="300">
+            <Grid x:Name="CameraViewGrid">
+                <Path
+                    Aspect="Fill"
+                    Data="M 0 0 L 0 1 L 1 1"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Stroke="White"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3"
+                    VerticalOptions="End"
+                    WidthRequest="40"
+                    ZIndex="10" />
+                <Path
+                    Aspect="Fill"
+                    Data="M 0 0 L -1 0 L -1 1"
+                    HeightRequest="40"
+                    HorizontalOptions="Start"
+                    Stroke="White"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3"
+                    VerticalOptions="Start"
+                    WidthRequest="40"
+                    ZIndex="10" />
+                <Path
+                    Aspect="Fill"
+                    Data="M 0 0 L 1 -0 L 1 -1"
+                    HeightRequest="40"
+                    HorizontalOptions="End"
+                    Stroke="White"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3"
+                    VerticalOptions="End"
+                    WidthRequest="40"
+                    ZIndex="10" />
+                <Path
+                    Aspect="Fill"
+                    Data="M 0 0 L -0 -1 L -1 -1"
+                    HeightRequest="40"
+                    HorizontalOptions="End"
+                    Stroke="White"
+                    StrokeLineCap="Round"
+                    StrokeThickness="3"
+                    VerticalOptions="Start"
+                    WidthRequest="40"
+                    ZIndex="10" />
+            </Grid>
+        </Border>
+        <StackLayout Grid.Row="2" Spacing="10">
+            <Button
+                BackgroundColor="{StaticResource VerdeGb}"
+                Clicked="TorchButton_Clicked"
+                CornerRadius="30"
+                HeightRequest="60"
+                ImageSource="{FontImageSource FontFamily=FASolid,
+                                              Glyph={x:Static uranium:Solid.Bolt},
+                                              Size=30,
+                                              Color=White}"
+                WidthRequest="60" />
+            <Button
+                BackgroundColor="Red"
+                Clicked="CloseButton_Clicked"
+                CornerRadius="30"
+                FontFamily="Roboto-Bold"
+                FontSize="18"
+                HeightRequest="60"
+                ImageSource="{FontImageSource FontFamily=FASolid,
+                                              Glyph={x:Static uranium:Solid.x},
+                                              Size=30,
+                                              Color=White}"
+                Text="Annulla"
+                TextColor="White"
+                WidthRequest="160" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Otp.Maui.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Otp.Maui"
+    xmlns:views="clr-namespace:Otp.Maui.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Otp.Maui">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate views:OtpListView}"
+        Route="MainPage" />
+
+</Shell>

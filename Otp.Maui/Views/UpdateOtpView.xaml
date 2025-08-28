@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Otp.Maui.Views.UpdateOtpView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    Title="Modifica il codice"
+    Shell.BackgroundColor="Transparent"
+    Shell.ForegroundColor="White"
+    Shell.TitleColor="White">
+    <Grid
+        Padding="10"
+        Background="Transparent"
+        BackgroundColor="Transparent"
+        RowDefinitions="*, 90">
+        <dx:DataFormView
+            x:Name="dataForm"
+            BackgroundColor="Transparent"
+            CommitMode="Input"
+            IsAutoGenerationEnabled="False"
+            ValidateProperty="dataForm_ValidateProperty"
+            ValidationMode="Input">
+            <dx:DataFormTextItem
+                FieldName="Description"
+                Focused="OnEntryFocused"
+                InplaceLabelText="Description"
+                IsInplaceLabelFloating="True"
+                IsLabelVisible="False"
+                Unfocused="OnEntryUnfocused" />
+            <dx:DataFormTextItem
+                FieldName="Issuer"
+                Focused="OnEntryFocused"
+                InplaceLabelText="Issuer"
+                IsInplaceLabelFloating="True"
+                IsLabelVisible="False"
+                IsReadOnly="True"
+                Unfocused="OnEntryUnfocused" />
+            <!--<dx:DataFormTextItem
+                FieldName="Secret"
+                Focused="OnEntryFocused"
+                InplaceLabelText="Secret Key"
+                IsLabelVisible="False"
+                Unfocused="OnEntryUnfocused" />-->
+        </dx:DataFormView>
+        <StackLayout Grid.Row="1" Spacing="10">
+            <!--<dx:DXButton
+            x:Name="GenerateRandom"
+            Clicked="GenerateRandom_Clicked"
+            Content="Genera chiave randomica" />-->
+            <dx:DXButton
+                x:Name="button"
+                Clicked="Save_Clicked"
+                Content="Salva"
+                VerticalOptions="End" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

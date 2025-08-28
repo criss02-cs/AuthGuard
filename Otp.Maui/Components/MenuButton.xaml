@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="Otp.Maui.Components.MenuButton"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:uranium="http://schemas.enisn-projects.io/dotnet/maui/uraniumui">
+    <Grid>
+        <Border
+            x:Name="mainbutton"
+            BackgroundColor="{StaticResource AccentColor}"
+            HeightRequest="70"
+            WidthRequest="70"
+            ZIndex="10">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30" />
+            </Border.StrokeShape>
+            <VerticalStackLayout
+                x:Name="bars"
+                HorizontalOptions="Center"
+                Spacing="3"
+                VerticalOptions="Center"
+                WidthRequest="5">
+
+                <Path
+                    x:Name="bar1"
+                    Aspect="Fill"
+                    Data="M -1 0 Q -2 0 -2 -1.5 Q -2 -3 -1 -3 L 17 -3 Q 18 -3 18 -1.5 Q 18 0 17 0 Z"
+                    Fill="Black" />
+                <Path
+                    x:Name="bar2"
+                    Aspect="Fill"
+                    Data="M -1 0 Q -2 0 -2 -1.5 Q -2 -3 -1 -3 L 17 -3 Q 18 -3 18 -1.5 Q 18 0 17 0 Z"
+                    Fill="Black" />
+                <Path
+                    x:Name="bar3"
+                    Aspect="Fill"
+                    Data="M -1 0 Q -2 0 -2 -1.5 Q -2 -3 -1 -3 L 17 -3 Q 18 -3 18 -1.5 Q 18 0 17 0 Z"
+                    Fill="Black" />
+            </VerticalStackLayout>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="mainbutton_Tapped" />
+            </Border.GestureRecognizers>
+        </Border>
+        <dx:DXPopup
+            x:Name="BarcodePopup"
+            AllowScrim="True"
+            CloseOnScrimTap="True">
+            <StackLayout Padding="20" Spacing="20">
+                <Label FontSize="25" Text="Scan this QR code" />
+                <Label Text="Download Auth Guard or Google Authenticator on your new device. Within the app, scan this QR code." />
+                <Border
+                    HeightRequest="350"
+                    StrokeShape="RoundRectangle 10"
+                    WidthRequest="350">
+                    <Image
+                        x:Name="QrCodeImage"
+                        HeightRequest="350"
+                        HorizontalOptions="Center"
+                        WidthRequest="350" />
+                </Border>
+            </StackLayout>
+        </dx:DXPopup>
+        <dx:DXPopup
+            x:Name="Popup"
+            Margin="0,0,20,90"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            AllowScrim="False"
+            AllowShadow="False"
+            Background="Transparent"
+            Closing="Popup_Closing"
+            Placement="Top"
+            PlacementTarget="{x:Reference mainbutton}"
+            ScrimColor="Transparent">
+            <StackLayout Spacing="10">
+                <dx:DXButton
+                    x:Name="menuitem1"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    Icon="{FontImageSource FontFamily=FASolid,
+                                           Glyph={x:Static uranium:Solid.Camera},
+                                           Size=30}"
+                    InputTransparent="False"
+                    WidthRequest="50" />
+                <dx:DXButton
+                    x:Name="menuitem2"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    Icon="{FontImageSource FontFamily=FASolid,
+                                           Glyph={x:Static uranium:Solid.Keyboard},
+                                           Size=30}"
+                    InputTransparent="False"
+                    WidthRequest="50"
+                    ZIndex="5" />
+                <dx:DXButton
+                    x:Name="menuitem3"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    Icon="{FontImageSource FontFamily=FASolid,
+                                           Glyph={x:Static uranium:Solid.FileImport},
+                                           Size=30}"
+                    InputTransparent="False"
+                    WidthRequest="50"
+                    ZIndex="5" />
+                <dx:DXButton
+                    x:Name="menuitem4"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    CornerRadius="30"
+                    HeightRequest="50"
+                    Icon="{FontImageSource FontFamily=FASolid,
+                                           Glyph={x:Static uranium:Solid.FileExport},
+                                           Size=30}"
+                    InputTransparent="False"
+                    WidthRequest="50"
+                    ZIndex="5" />
+            </StackLayout>
+        </dx:DXPopup>
+    </Grid>
+</ContentView>
