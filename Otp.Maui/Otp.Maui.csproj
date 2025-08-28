@@ -133,6 +133,7 @@
 		<PackageReference Include="UraniumUI" Version="2.8.1" />
 		<PackageReference Include="UraniumUI.Icons.FontAwesome" Version="2.8.1" />
 		<PackageReference Include="UraniumUI.Material" Version="2.8.1" />
+		<PackageReference Include="Oscore.Maui.Android.InAppUpdates" Version="1.2.0" />
     </ItemGroup>
 
     <ItemGroup>

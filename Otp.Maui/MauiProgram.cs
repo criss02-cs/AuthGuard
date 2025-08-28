@@ -2,6 +2,7 @@
 using CommunityToolkit.Maui;
 using DevExpress.Maui;
 using DevExpress.Maui.Core;
+using Maui.Android.InAppUpdates;
 using Microsoft.Extensions.Logging;
 using Otp.Business.Services;
 using Otp.Business.ViewModels;
@@ -30,6 +31,7 @@ public static class MauiProgram
             .UseDevExpressEditors()
             .UseBarcodeScanning()
             .UseUraniumUI()
+            .UseAndroidInAppUpdates()
             //.UseMauiCameraView()
             .UseUraniumUIMaterial()
             .ConfigureFonts(fonts =>

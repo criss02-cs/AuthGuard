@@ -3,7 +3,7 @@
   <PropertyGroup>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
     <ActiveDebugFramework>net9.0-android</ActiveDebugFramework>
-    <ActiveDebugProfile>Pixel 9 Pro XL (16.0 Android - API 36)</ActiveDebugProfile>
+    <ActiveDebugProfile>Emulatore Android</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
     <DefaultDevice>Pixel_9_Pro_XL</DefaultDevice>
   </PropertyGroup>
