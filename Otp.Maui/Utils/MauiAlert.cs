@@ -13,7 +13,7 @@ namespace Otp.Maui.Utils
         {
             var page = Application.Current?.Windows[0].Page;
             if (page is null) return;
-            await MainThread.InvokeOnMainThreadAsync(() => page.DisplayAlert("GBsoftware", message, "Ok"));
+            await MainThread.InvokeOnMainThreadAsync(() => page.DisplayAlertAsync("GBsoftware", message, "Ok"));
         }
 
         public static async Task<string> ShowItemsDialog(string title, List<string> items)
@@ -21,7 +21,7 @@ namespace Otp.Maui.Utils
             var page = Application.Current?.Windows[0].Page;
             if (page is null) return "";
             var item = await MainThread.InvokeOnMainThreadAsync(() =>
-                page.DisplayActionSheet(title, "Annulla", "", [.. items]));
+                page.DisplayActionSheetAsync(title, "Annulla", "", [.. items]));
             return item ?? "";
         }
 
@@ -46,7 +46,7 @@ namespace Otp.Maui.Utils
         {
             var page = Application.Current?.Windows[0].Page;
             if (page is null) return false;
-            var res = await MainThread.InvokeOnMainThreadAsync(() => page.DisplayAlert(title, message, "Sì", "No"));
+            var res = await MainThread.InvokeOnMainThreadAsync(() => page.DisplayAlertAsync(title, message, "Sì", "No"));
             return res;
         }
     }

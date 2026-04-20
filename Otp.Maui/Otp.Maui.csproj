@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net9.0-ios;net9.0-android</TargetFrameworks>
+        <TargetFrameworks>net10.0-ios;net10.0-android</TargetFrameworks>
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net9.0-tizen</TargetFrameworks> -->
 
@@ -27,21 +27,21 @@
         <ApplicationId>it.cristianoaloigi.otp</ApplicationId>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>1.0.2</ApplicationDisplayVersion>
-        <ApplicationVersion>3</ApplicationVersion>
+        <ApplicationDisplayVersion>1.0.3</ApplicationDisplayVersion>
+        <ApplicationVersion>4</ApplicationVersion>
 
-        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">23.0</SupportedOSPlatformVersion>
         <Configurations>Debug;Release;Release_Prod</Configurations>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0-android|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net10.0-android|AnyCPU'">
       <AndroidPackageFormat>aab</AndroidPackageFormat>
       <AndroidUseAapt2>True</AndroidUseAapt2>
       <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Prod|net9.0-android|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release_Prod|net10.0-android|AnyCPU'">
       <AndroidPackageFormat>apk</AndroidPackageFormat>
       <AndroidUseAapt2>True</AndroidUseAapt2>
       <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
@@ -115,25 +115,25 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="BarcodeScanning.Native.Maui" Version="1.7.6" />
+        <PackageReference Include="BarcodeScanning.Native.Maui" Version="3.0.3" />
         <!--<PackageReference Include="Camera.MAUI" Version="1.5.1" />-->
         <!--<PackageReference Include="Camera.MAUI.ZXing" Version="1.0.0" />-->
 		<PackageReference Include="QRCoder-ImageSharp" Version="0.10.0" />
-        <PackageReference Include="CommunityToolkit.Maui" Version="9.1.1" />
-        <PackageReference Include="DevExpress.Maui.CollectionView" Version="24.1.7" />
-        <PackageReference Include="DevExpress.Maui.Core" Version="24.1.7" />
-        <PackageReference Include="DevExpress.Maui.Gauges" Version="24.1.7" />
-		<PackageReference Include="DevExpress.Maui.Controls" Version="24.1.7" />
-		<PackageReference Include="DevExpress.Maui.Editors" Version="24.1.7" />
-		<PackageReference Include="Google.Protobuf" Version="3.29.3" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
-        <PackageReference Include="protobuf-net" Version="3.2.46" />
-		<PackageReference Include="UraniumUI" Version="2.8.1" />
-		<PackageReference Include="UraniumUI.Icons.FontAwesome" Version="2.8.1" />
-		<PackageReference Include="UraniumUI.Material" Version="2.8.1" />
-		<PackageReference Include="Oscore.Maui.Android.InAppUpdates" Version="1.2.0" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="14.1.0" />
+        <PackageReference Include="DevExpress.Maui.CollectionView" Version="24.2.12" />
+        <PackageReference Include="DevExpress.Maui.Core" Version="24.2.12" />
+        <PackageReference Include="DevExpress.Maui.Gauges" Version="24.2.12" />
+		<PackageReference Include="DevExpress.Maui.Controls" Version="24.2.12" />
+		<PackageReference Include="DevExpress.Maui.Editors" Version="24.2.12" />
+		<PackageReference Include="Google.Protobuf" Version="3.34.1" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.51" />
+        <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="10.0.51" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.6" />
+        <PackageReference Include="protobuf-net" Version="3.2.56" />
+		<PackageReference Include="UraniumUI" Version="2.15.0" />
+		<PackageReference Include="UraniumUI.Icons.FontAwesome" Version="2.15.0" />
+		<PackageReference Include="UraniumUI.Material" Version="2.15.0" />
+		<PackageReference Include="Oscore.Maui.Android.InAppUpdates" Version="1.5.1" />
     </ItemGroup>
 
     <ItemGroup>

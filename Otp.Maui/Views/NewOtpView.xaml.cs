@@ -61,13 +61,13 @@ public partial class NewOtpView : ContentPage
     private async void OnEntryUnfocused(object? sender, FocusEventArgs e)
     {
         // Trasla il pulsante verso l'alto quando la tastiera è visibile
-        await button.TranslateTo(0, 0, 250, Easing.CubicInOut);
+        await button.TranslateToAsync(0, 0, 250, Easing.CubicInOut);
     }
 
     private async void OnEntryFocused(object? sender, FocusEventArgs e)
     {
         // Riporta il pulsante alla posizione originale quando la tastiera è nascosta
-        await button.TranslateTo(0, 700, 250, Easing.CubicInOut);
+        await button.TranslateToAsync(0, 700, 250, Easing.CubicInOut);
     }
 
     private void GenerateRandom_Clicked(object sender, EventArgs e)
